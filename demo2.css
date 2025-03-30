@@ -1,6 +1,8 @@
 /* Global Styles */
 
     body {
+        padding: 0%;
+        margin: 0%;
         align-content: center;
         /* background-image: url('https://th.bing.com/th/id/OIP.6uxj47OhldvCFf2jslg_bwHaE8?rs=1&pid=ImgDetMain'); */
         background-repeat: no-repeat;
@@ -15,15 +17,22 @@
 .container {
     width: 90%;
     margin: 20px auto;
+    padding-top: 8%;
 }
 
 /* Search Box */
 #search-box {
-   /* background-color: antiquewhite; */
-  padding-left: 200px;
-  
-   
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for visibility */
+    z-index: 10000; /* Ensure it's above all other content */
 }
+
 #city-name{
    gap: 10px;
    padding-bottom: 25px;
@@ -67,7 +76,7 @@ button:hover {
    box-shadow: 0px 0px 10px 0px black;
     width: 200px;
     height: 300px;
-    margin-left: 500px;
+    margin-left: 400px;
 
    
  
@@ -98,7 +107,7 @@ button:hover {
     text-align: center;
     color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition:transform 0.3s ease-in ;
+    transition:transform 1s;
 
 }
 #weekly-forecast{
@@ -110,6 +119,7 @@ button:hover {
     width: 80%;
     margin: 20px auto;
     margin-top: 80px;
+    
 }
 #bg-video {
     position: fixed;
@@ -125,9 +135,9 @@ p{
     
 }
 .forecast-card:hover {
-    transform: scaleY(1);
+    transform: scale(1.1);
     box-shadow: 0 8px 16px rgba(32, 8, 246, 0.3);
-    background-color: #0288d1;
+    /* background-color: #0288d1; */
    border-color: black;
     /* cursor: pointer; */
 }
@@ -138,7 +148,61 @@ h1{
     /* background-color: aqua; */
     height: 540px;
     width: 1350px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 10px 0px black;
+    border: 1px solid  #299bd0;
+    box-shadow: 0px 0px 10px 0px  #1e1f20;
+
+}
+.info,.chart-container, .main_div {
+    display: none;
+}
+.chart-container1 {
+    width: 40%;
+    height: 80%;
+    margin: auto;
+    display: none; /* Initially hidden, made visible when data is fetched */
+    /* background-color: #81d4fa; */
+  
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: rebeccapurple; */
+    height: 400px;
+    padding-right: 100px;
+}
+
+@media only screen and (max-width:700px){
+    .main{
+       display: flex;
+        
+        justify-content: center;
+        width: 700px;
+        
+       
+    }
+    #main-info{
+        /* background-color: red; */
+        height: 320px;
+        width: 900px;
+        margin-right: 300px;
+
+        
+    }
+    .chart-container{
+       
+        margin-top: 400px;
+        height: 250px;
+        width: 700px;
+        padding-left: 80px;
+       
+    }
+    .main_div{
+        display: none;
+        /* display: flex;
+        flex-wrap: wrap; */
+        height: 500px;
+        width: 800px;
+        padding-bottom: 50px;
+    }
 
 }
