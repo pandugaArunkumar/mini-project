@@ -6,6 +6,7 @@
     <title>Weather Pulse Dashboard</title>
     <link rel="stylesheet" href="demo2.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
 </head>
 <body>
     <video autoplay muted loop id="bg-video">
@@ -21,13 +22,19 @@
         </div>
 
         <!-- Main Weather Info -->
-        <div id="main-info">
-            <h2 id="city-name">Weather Report</h2>
-            <p id="temperature">Temperature: --°C</p>
-            <p id="condition">Condition: --</p>
-            <p id="humidity">Humidity: --%</p>
-            <p id="wind-speed">Wind Speed: -- km/h</p>
-            <p id="air-quality">Air Quality: --</p>
+        <div class="main">
+            <div id="main-info">
+                <h2 id="city-name">Weather Report</h2>
+                <p id="temperature">Temperature: --°C</p>
+                <p id="condition">Condition: --</p>
+                <p id="humidity">Humidity: --%</p>
+                <p id="wind-speed">Wind Speed: -- km/h</p>
+                <p id="air-quality">Air Quality: --</p>
+            </div>
+            <div class="chart-container1">
+                <canvas id="weatherChart"></canvas>
+
+            </div>
         </div>
 
         <!-- Trend Chart for Temperature -->
@@ -35,7 +42,7 @@
             <canvas id="tempChart"></canvas>
         </div>
 
-        <h1>Todays Prediction :-</h1>
+        <h1 class="info">Todays Prediction : </h1>
 
         <!-- Hourly Forecast Cards -->
          <div class="main_div">
