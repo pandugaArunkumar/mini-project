@@ -29,6 +29,8 @@ async function getWeather() {
         const weatherData = await weatherResponse.json();
         // console.log(weatherData)
         displayWeather(weatherData);
+        generateChart(weatherData.main.temp, weatherData.main.humidity, weatherData.wind.speed);
+    
 
         // Get forecast data
         const forecastResponse = await fetch(forecastUrl);
@@ -50,6 +52,15 @@ function displayWeather(data) {
     document.getElementById('air-quality').innerText = `Air Quality: Moderate`;
 
     // Change background video based on weather condition
+
+    // document.getElementById('main-info').style.display = 'block';
+
+    document.querySelector('.chart-container').style.display = 'block';
+    document.querySelector('.main_div').style.display = 'block';
+    document.querySelector('.info').style.display = 'block';
+
+    document.querySelector('.chart-container1').style.display = 'block';
+
     changeBackgroundVideo(data.weather[0].main);
 }
 
@@ -136,10 +147,10 @@ function generateTemperatureChart(data) {
     const ctx = document.getElementById('tempChart').getContext('2d');
     const labels = data.list.slice(0, 8).map(item => formatHour(item.dt));
     const temps = data.list.slice(0, 8).map(item => item.main.temp);
-    const bgcolor='red'
+    
 
     new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: labels,
             datasets: [{
@@ -147,16 +158,25 @@ function generateTemperatureChart(data) {
                 data: temps,
                 color:'red',
                 borderColor: 'black',
+             
                 borderWidth: 1,
-              
-                borderColor: ['black'],
+                backgroundColor:['rgba(0, 0, 255, 0.6)',   // Blue
+                    'rgba(0, 128, 0, 0.6)',   // Green
+                    'rgba(255, 255, 0, 0.6)', // Yellow
+                    'rgba(255, 165, 0, 0.6)', // Orange
+                    'rgba(255, 192, 203, 0.6)', // Pink
+                    'rgba(138, 43, 226, 0.6)', // Violet
+                    'rgba(165, 42, 42, 0.6)', // Brown
+                    'rgba(0, 255, 255, 0.6)'],
+                
+                
+               
                 
             }]
         },
         options: {
-           
             responsive: true,
-            scales: {
+                scales: {
                 x: {
                     ticks: {
                         color: 'black',  // Change X-axis label color
@@ -173,8 +193,44 @@ function generateTemperatureChart(data) {
                         }
                     }
                 }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'black', // Change legend label color
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
             }
         }
-        
       });
+}
+
+function generateChart(temp, humidity, windSpeed) {
+    const ctx = document.getElementById('weatherChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Temperature (°C)', 'Humidity (%)', 'Wind Speed (km/h)'],
+            datasets: [{
+                label: 'Weather Data',
+                data: [temp, humidity, windSpeed],
+                backgroundColor: ['yellow', '#00ccff', 'orange'],
+                borderColor: ['yellow', '#00ccff', 'orange'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Weather Data",
+                    font:3
+                }
+            }
+        }
+    });
 }
