@@ -12,6 +12,15 @@
        -webkit-user-select: none;
     }
 
+    .heading{
+        /* background-color: #81d4fa; */
+        margin-top: 0px;
+       text-align: center;
+       color:black;
+       /* text-decoration:underline; */
+
+    }
+
 
 /* Container */
 .container {
@@ -95,6 +104,7 @@ button:hover {
     padding-left: 40px;
     padding-right: 40px;
     
+    
     /* background-color: aqua; */
 }
 
@@ -133,6 +143,7 @@ button:hover {
 p{
     font-size:18px;
     
+    
 }
 .forecast-card:hover {
     transform: scale(1.1);
@@ -143,16 +154,19 @@ p{
 }
 h1{
     margin-top: 100px;
+    text-transform: uppercase;
+    color: red;
 }
 .main_div{
     /* background-color: aqua; */
     height: 540px;
-    width: 1350px;
+    width: 1500px;
     border: 1px solid  #299bd0;
     box-shadow: 0px 0px 10px 0px  #1e1f20;
+    border-radius: 6px;
 
 }
-.info,.chart-container, .main_div {
+.info,.chart-container, .main_div,.heading {
     display: none;
 }
 .chart-container1 {
@@ -171,38 +185,77 @@ h1{
     padding-right: 100px;
 }
 
-@media only screen and (max-width:700px){
+@media only screen and (max-width:500px){
     .main{
        display: flex;
-        
+        /* background-color: red; */
         justify-content: center;
         width: 700px;
+        height: 500px;
+        /* align-items: center; */
         
        
     }
     #main-info{
-        /* background-color: red; */
-        height: 320px;
-        width: 900px;
-        margin-right: 300px;
+        height: 450px;
+      
+        width:19rem;
+        margin-left: 160px;
+        margin-top: 100px;
+        font-size:x-large;
+        padding-top: 50px;
+        margin-right: 200px;
+     
 
         
     }
     .chart-container{
        
         margin-top: 400px;
-        height: 250px;
+        height: 450px;
         width: 700px;
-        padding-left: 80px;
+        padding-left: 40px;
+        padding-top: 100px;
        
     }
     .main_div{
         display: none;
         /* display: flex;
         flex-wrap: wrap; */
-        height: 500px;
-        width: 800px;
+        height: 470px;
+        width: 770px;
         padding-bottom: 50px;
+    }
+    #cityInput{
+          width: 600px;
+          height: 40px;
+    }
+    #weather-form{
+        height: 80px;
+    }
+    #sub-btn{
+        height: 59px;
+    }
+    .heading{
+        margin-top: 90px;
+        margin-left: 160px;
+        /* background-color: #81d4fa; */
+        width:350px;
+        font-size: 42px;
+    }
+    .forecast-card{
+        height: 155px;
+    }
+    #weatherChart{
+        padding-top: 40px;
+    }
+    #main-info p{
+        font-size: 28px;
+
+    }
+    marquee{
+        width:770px;
+       
     }
 
 }
