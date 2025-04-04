@@ -58,7 +58,7 @@ function displayWeather(data) {
     document.querySelector('.chart-container').style.display = 'block';
     document.querySelector('.main_div').style.display = 'block';
     document.querySelector('.info').style.display = 'block';
-
+    document.querySelector('.heading').style.display='block';
     document.querySelector('.chart-container1').style.display = 'block';
 
     changeBackgroundVideo(data.weather[0].main);
